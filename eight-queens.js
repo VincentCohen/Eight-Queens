@@ -20,9 +20,8 @@ class EightQueens {
     context.fillStyle = '#666666'
     context.save();
 
-    console.log(context);
+    document.body.appendChild(this.canvas);
   }
-
 
 }
 
