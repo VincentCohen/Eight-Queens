@@ -16,24 +16,32 @@ class EightQueens {
     this.canvas.height    = this.canvasWidth;
 
     var context = this.canvas.getContext("2d");
+    var black = '#826850';
+    var white = '#fff';
 
     let blockSize = 50;
+    for (var y = 0; y < 8; y++) {
+      for (var x = 0; x < 8; x++) {
+          var fillColor = black;
+          if (x % 2)
+          {
+            fillColor = white;
+          }
 
-    for (var i = 0; i < 8; i++) {
-        context.fillStyle = '#666';
-        if (i % 2)
-        {
-          context.fillStyle = '#fFF';
-        }
+          if ( (y % 2) == 1)
+          {
+            fillColor = white;
+            if (x % 2)
+            {
+              fillColor = black;
+            }
+          }
 
-        if (i > 7)
-        {
+          context.fillStyle = fillColor;
+          context.fillRect( x * blockSize, y * blockSize, blockSize, blockSize);
           context.fillStyle = '#ff0000';
-        }
-
-        context.fillRect( i * blockSize, 0, blockSize, blockSize);
-        context.fillStyle = '#ff0000';
-        context.fillText('NR ' + (i+1), i * (blockSize), blockSize/2);
+          context.fillText('X' + x + ' Y' + y, x * blockSize, y * blockSize);
+      }
     }
 
     // context.fillStyle = '#666666';
